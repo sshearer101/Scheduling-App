@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
-
+// import { connect } from "react-redux";
+import { useSelector } from "react-redux";
+ 
 
 
 export default function Events({ props }){
@@ -10,6 +11,8 @@ export default function Events({ props }){
     function handleChange(e){
         setEvent(e.target.value)
     }
+
+    const addEvent = useSelector(state => state.eventReducer)
 
     return(
         <div className="addEvents">
@@ -22,6 +25,9 @@ export default function Events({ props }){
             <button className="add-button">
                 Add Event
             </button>
+            <div>
+                <h1>{addEvent}</h1>
+            </div>
         </div>
     )
 }
